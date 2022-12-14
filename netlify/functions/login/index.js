@@ -4,9 +4,25 @@ exports.handler = async function (event, context) {
     const {httpMethod} = event;
 
     if (httpMethod === 'POST') {
+        const {body} = event;
+        let parsedBody = {contactid: ""};
+
+        if (body) {
+            try {
+                parsedBody = JSON.parse(body);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         const expiresIn = 5 * 60;
-        const sub = 'sub';
-        const iss = process.env.ISSUER
+        const iss = process.env.ISSUER;
+        let sub = 'sub';
+
+        if (parsedBody.contactid) {
+            sub = parsedBody.contactid
+        }
+
         const payload = {
             sub,
             iss
