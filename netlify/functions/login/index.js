@@ -15,12 +15,16 @@ exports.handler = async function (event, context) {
             }
         }
 
-        const expiresIn = 5 * 60;
+        let expiresIn = 5 * 60;
         const iss = process.env.ISSUER;
         let sub = 'sub';
 
         if (parsedBody.contactid) {
             sub = parsedBody.contactid
+        }
+
+        if (parsedBody.expiry) {
+            expiresIn = parsedBody.expiry
         }
 
         const payload = {
@@ -32,6 +36,8 @@ exports.handler = async function (event, context) {
             algorithm: "HS256",
             expiresIn
         });
+
+        console.log(token);
 
         return {
             statusCode: 200,
