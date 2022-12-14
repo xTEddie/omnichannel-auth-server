@@ -43,7 +43,7 @@ exports.handler = async function (event, context) {
         }
 
         const token = jwt.sign(payload, process.env.PRIVATE_KEY, {
-            algorithm: "HS256",
+            algorithm: "RS256",
             expiresIn
         });
 
