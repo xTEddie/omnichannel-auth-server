@@ -1,8 +1,6 @@
 const login = require('../login');
 const publickey = require('../publickey');
 
-console.log(login);
-
 exports.handler = async function (event, context) {
     const {httpMethod, path} = event;
     console.log(httpMethod);
