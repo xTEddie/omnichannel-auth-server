@@ -1,5 +1,11 @@
 const jwt = require("jsonwebtoken");
 
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
+
 exports.handler = async function (event, context) {
     const {httpMethod} = event;
 
@@ -44,6 +50,7 @@ exports.handler = async function (event, context) {
         console.log(token);
 
         return {
+            headers,
             statusCode: 200,
             body: token
         }
