@@ -20,17 +20,21 @@ exports.handler = async function (event, context) {
         let sub = 'sub';
 
         if (parsedBody.contactid) {
-            sub = parsedBody.contactid
+            sub = parsedBody.contactid;
         }
 
         if (parsedBody.expiry) {
-            expiresIn = parsedBody.expiry
+            expiresIn = parsedBody.expiry;
         }
 
         const payload = {
             sub,
             iss
         };
+
+        if (parsedBody.lwicontexts) {
+            payload.lwicontexts = parsedBody.lwicontexts;
+        }
 
         const token = jwt.sign(payload, process.env.PRIVATE_KEY, {
             algorithm: "HS256",
