@@ -1,4 +1,4 @@
-# Netlify Functions
+# Netlify Serverless Functions
 
 ## Prerequisites
 - [Netlify CLI](https://www.npmjs.com/package/netlify-cli)
@@ -41,7 +41,7 @@ netlify functions:serve
 ### 1. Set Environment Variables
 
 ```
-netlify env:import ./netlify/.env
+netlify env:import .env
 ```
 
 ### 2. Deploy
