@@ -90,7 +90,7 @@ const lwiContexts = {
 };
 const data = {
     contactid: 'contactid', // Overwrite sub claim
-    expiry: 5 * 60, // Overwrite exp claim
+    expiry: 5 * 60, // Overwrite exp claim (minutes)
     lwicontexts: JSON.stringify(lwiContexts) // Add LWI Contexts
 };
 
