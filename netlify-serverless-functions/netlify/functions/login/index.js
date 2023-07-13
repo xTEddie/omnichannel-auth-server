@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
             }
         }
 
-        let expiresIn = 5 * 60;
+        let expiresIn = 5 * 60; // default to 5 minutes
         const iss = process.env.ISSUER;
         let sub = 'sub';
 
